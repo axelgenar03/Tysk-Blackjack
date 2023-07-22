@@ -1,4 +1,3 @@
-import tkinter
 from Deck import Deck
 from Wallet import Wallet
 import random
@@ -29,16 +28,8 @@ def dealer_hand():
     #for card in user_hand:
         
 
-
-
-
 deal_hand()
 
 dealer_hand()
-
-
-#print(wallet.balance)
-#wallet.deduct_balance(int(input("Enter Amount to Deduct: ")))
-
 
 
