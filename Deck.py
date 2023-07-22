@@ -5,7 +5,7 @@ class Deck:
         self.deck = 0
         deck = []
         possible_faces = ["Hearts", "Diamonds", "Spades", "Clubs"]
-        possible_values = ["A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+        possible_values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
         for val in possible_values:
             for face in possible_faces:
                 deck.append(Card(val, face))
