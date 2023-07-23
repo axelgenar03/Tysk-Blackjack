@@ -20,8 +20,6 @@ def deal_hand():
     return user_hand
     
     
-
-
 def dealer_hand():
     dealer_hand = []
     for i in range(5):
@@ -32,7 +30,7 @@ def dealer_hand():
 
 def change_hand(amogus):
   
-    bad_card = int(input("What card do you want to exchange?"))
+    bad_card = int(input("What card do you want to exchange?:\n"))
     bad_card -= 1
     index = random.randint(0,len(deck))
     amogus[bad_card] = (deck[index])
@@ -45,6 +43,5 @@ def change_hand(amogus):
 
 player_hand = deal_hand()
 dealer_hand()
-
 change_hand(player_hand)
 
