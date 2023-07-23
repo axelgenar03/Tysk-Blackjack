@@ -1,7 +1,7 @@
 class Card:
-    def __init__(self, value, face):
+    def __init__(self, value, suit):
         self.value = value
-        self.face = face
+        self.suit = suit
 
     def show(self):
-        return f"{self.value} of {self.face}"
+        return f"{self.value} of {self.suit}"
