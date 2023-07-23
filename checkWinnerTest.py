@@ -44,42 +44,10 @@ def check(hand) -> dict:
         "K": 0
     }
     for card in hand:
-        if card.suit == "Hearts":
-            suits_dict["Hearts"] += 1
-        elif card.suit == "Diamonds":
-            suits_dict["Diamonds"] += 1
-        elif card.suit == "Spades":
-            suits_dict["Spades"] += 1
-        elif card.suit == "Clubs":
-            suits_dict["Clubs"] += 1
+        suits_dict[card.get_suit()] += 1
 
     for card in hand:
-        if card.value == "A":
-            values_dict["A"] += 1
-        elif card.value == "2":
-            values_dict["2"] += 1
-        elif card.value == "3":
-            values_dict["3"] += 1
-        elif card.value == "4":
-            values_dict["4"] += 1
-        elif card.value == "5":
-            values_dict["5"] += 1
-        elif card.value == "6":
-            values_dict["6"] += 1
-        elif card.value == "7":
-            values_dict["7"] += 1
-        elif card.value == "8":
-            values_dict["8"] += 1 
-        elif card.value == "9":
-            values_dict["9"] += 1
-        elif card.value == "10":
-            values_dict["10"] += 1
-        elif card.value == "J":
-            values_dict["J"] += 1
-        elif card.value == "Q":
-            values_dict["Q"] += 1
-        elif card.value == "K":
-            values_dict["K"] += 1
+        values_dict[card.get_value()] += 1
         
     return suits_dict, values_dict
 
