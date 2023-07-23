@@ -28,15 +28,22 @@ def dealer_hand():
         del deck[index]
     #for card in user_hand:
 
-def change_hand(amogus):
-  
-    bad_card = int(input("What card do you want to exchange?:\n"))
-    bad_card -= 1
-    index = random.randint(0,len(deck))
-    amogus[bad_card] = (deck[index])
-    del deck[index]    
+def change_hand(player_hand):
+    amount_change = int(input("How many cards do you want to change?:\n")) 
+    i = amount_change
+    while i > 0:
+        if i == amount_change:
+            bad_card = int(input("Choose a card to exchange:\n"))
+        else:  
+            bad_card = int(input("Choose another card to exchange:\n"))
+        bad_card -= 1
+        index = random.randint(0,len(deck))
+        player_hand[bad_card] = (deck[index])
+        del deck[index]
+        i-=1    
     print("\nYour hand: \n---------------")
-    for card in amogus:
+
+    for card in player_hand:
         print(card.show())
     print("---------------")
         
