@@ -65,7 +65,6 @@ def change_hand(player_hand):
     cards_to_swap = cards_to_swap_input.split(",")
     for i in range(len(cards_to_swap)):
         cards_to_swap[i] = int(cards_to_swap[i])
-    print(cards_to_swap)
     for i in range(len(cards_to_swap)):
         index = random.randint(0, len(deck))
         player_hand[cards_to_swap[i] - 1] = deck[index]
