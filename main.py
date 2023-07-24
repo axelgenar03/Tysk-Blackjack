@@ -1,11 +1,17 @@
 from Deck import Deck
 from Wallet import Wallet
+from Checker import Checker
 import sys
 from termcolor import colored
 import random
+import os
+
+checker = Checker()
 wallet = Wallet()
 deck_class = Deck()
 deck = deck_class.deck
+
+
 global player_hand
 
 
@@ -32,6 +38,15 @@ def dealer_hand():
         del deck[index]
     #for card in user_hand:
 
+def show_player_hand(player_hand):
+    os.system("cls" if os.name == "nt" else "clear")
+    print("\nYour hand: \n---------------")
+    j = 1
+    for card in player_hand:
+        print(f"[{j}] {card.show()}")
+        j += 1
+    print("---------------\n")
+
 """
 def change_hand(player_hand):
     amount_change = int(input("How many cards do you want to change?:\n")) 
@@ -53,6 +68,7 @@ def change_hand(player_hand):
 """ 
 
 def change_hand(player_hand):
+    show_player_hand(player_hand)
     player_choice = input("Would you like to change any cards? [Y/N]: ").upper()
     if player_choice == "N":
         return False
@@ -69,14 +85,12 @@ def change_hand(player_hand):
         index = random.randint(0, len(deck))
         player_hand[cards_to_swap[i] - 1] = deck[index]
         del deck[index]
-    print("\nYour new hand: \n---------------")
-    j = 1
-    for card in player_hand:
-        print(f"[{j}] {card.show()}")
-        j += 1
-    print("---------------")
+    show_player_hand(player_hand)
 
 player_hand = deal_hand()
 dealer_hand()
 change_hand(player_hand)
+change_hand(player_hand)
 
+checker.categorize_hand(player_hand)
+print(f"{checker.values_dict} \n {checker.suits_dict}")
