@@ -21,9 +21,6 @@ class GUI:
         Label(window, pady=80, padx=20, text=cards[4].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=610, y=500)
 
 
-
-
-
-
         canvas.pack()
         window.mainloop()
+
