@@ -97,4 +97,6 @@ change_hand(player_hand)
 checker.categorize_hand(player_hand)
 print(f"{checker.values_dict} \n {checker.suits_dict}")
 #gui.gui(player_hand)
+checker.two_pair()
+print(checker.score)
 

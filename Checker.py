@@ -37,25 +37,51 @@ class Checker:
             self.values_dict[card.get_value()] += 1
         return True
    
+    def controll_score(self):
+        pass
+
+    # !! POKER HANDS !!
+
     def royal_straight_flush(self, hand):
         pass
     
     def straight_flush(self, hand):
-        low = 100
-        for card in hand:
-            i = self.card_order.index(card.value)
-            if i < low:
-                low = i
-        print(low)
+        straight = True
+        flush = True
+        straight_flush = True
+        straight = self.straight(hand)
+        flush = self.flush()
+        if straight and flush:
+            straight_flush = True
+            self.score = 9
+        return straight_flush
 
-    def four_of_a_kind(self, hand):
-        pass
+    def four_of_a_kind(self):
+        four_of_a_kind = True
+        values_amount_list = list(self.values_dict.values())
+        if 4 in values_amount_list:
+            self.score = 8
+        else:
+            four_of_a_kind = False
+        return four_of_a_kind
     
-    def full_house(self, hand):
-        pass
+    def full_house(self):
+        full_house = True
+        values_amount_list = list(self.values_dict.values())
+        if 3 in values_amount_list and 2 in values_amount_list:
+            self.score = 7
+        else:
+            full_house = False
+        return full_house
 
-    def flush(self, hand):
-        pass
+    def flush(self):
+        flush = True
+        suits_amount_list = list(self.suits_dict.values())
+        if 5 in suits_amount_list:
+            self.score = 6
+        else:
+            flush = False
+        return flush
 
     def straight(self, hand):
         straight = True
@@ -76,15 +102,37 @@ class Checker:
             self.score = 5
         return straight
 
+    def three_of_a_kind(self):
+        three_of_a_kind = True
+        values_amount_list = list(self.values_dict.values())
+        if 3 in values_amount_list:
+            self.score = 4
+        else:
+            three_of_a_kind = False
+        return three_of_a_kind
 
-    def three_of_a_kind(self, hand):
-        pass
+    def two_pair(self):
+        two_pair = True
+        values_amount_list = list(self.values_dict.values())
+        print (values_amount_list)
+        amount_of_pairs = 0
+        for num in values_amount_list:
+            if num == 2:
+                amount_of_pairs += 1
+        if amount_of_pairs == 2:
+            self.score = 3
+        else:
+            two_pair = False
+        return two_pair
 
-    def two_pair(self, hand):
-        pass
-
-    def pair(self, hand):
-        pass
+    def pair(self):
+        pair = True
+        values_amount_list = list(self.values_dict.values())
+        if 2 in values_amount_list:
+            self.score = 2
+        else:
+            pair = False
+        return pair
 
     def high_card(self, hand):
         pass
