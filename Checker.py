@@ -58,7 +58,24 @@ class Checker:
         pass
 
     def straight(self, hand):
-        pass
+        straight = True
+        low = 100
+        for card in hand:
+            x = self.card_order.index(card.value)
+            if x < low:
+                low = x
+        low += 1
+        hand_values = []
+        for card in hand:
+            hand_values.append(card.value)
+        for i in range(len(hand)-1):
+            if self.card_order[low + i] != hand_values[i + 1]:
+                straight = False
+                break
+        if straight:
+            self.score = 5
+        return straight
+
 
     def three_of_a_kind(self, hand):
         pass

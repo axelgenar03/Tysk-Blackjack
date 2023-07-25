@@ -1,13 +1,13 @@
 from Deck import Deck
 from Wallet import Wallet
 from Checker import Checker
-from gui import GUI
+#from gui import GUI
 import sys
 from termcolor import colored
 import random
 import os
 
-gui = GUI()
+#gui = GUI()
 checker = Checker()
 wallet = Wallet()
 deck_class = Deck()
@@ -96,4 +96,5 @@ change_hand(player_hand)
 
 checker.categorize_hand(player_hand)
 print(f"{checker.values_dict} \n {checker.suits_dict}")
-gui.gui(player_hand)
+#gui.gui(player_hand)
+

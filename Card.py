@@ -11,3 +11,9 @@ class Card:
     
     def get_suit(self):
         return self.suit
+    
+    def set_value(self, value):
+        self.value = value
+
+    def set_suit(self, suit):
+        self.suit = suit
