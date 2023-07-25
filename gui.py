@@ -19,9 +19,6 @@ class GUI:
         Label(window,pady=80,padx=40, text="Kort 5", bg="#00FF00", fg="white").place(x=570, y=500)
 
 
-
-
-
-
         canvas.pack()
         window.mainloop()
+
