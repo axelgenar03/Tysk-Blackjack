@@ -1,16 +1,27 @@
 from tkinter import *
+from PIL import ImageTk, Image
+class GUI:
 
-window = Tk()
-canvas = Canvas()
-window.geometry("800x800")
-window.title("Blackjack")
+    def __init__(self) -> None:
+        pass
+
+    def gui(self,cards):
+        window = Tk()
+        canvas = Canvas()
+        window.geometry("800x800")
+        window.title("Blackjack")
 
 
-#    canvas.create_rectangle(10,10,110,110,outline ="black",fill ="white",width = 2)
-#  canvas.create_rectangle(210,10,310,210,outline ="black",fill ="white",width =2)
+        Label(window,pady=80,padx=40, text="Kort 1", bg="#FFFF00", fg="white").place(x=50, y=500)
+        Label(window,pady=80,padx=40, text="Kort 2", bg="#3300CC", fg="white").place(x=180, y=500)
+        Label(window,pady=80,padx=40, text="Kort 3", bg="#FF0099", fg="white").place(x=310, y=500)
+        Label(window,pady=80,padx=40, text="Kort 4", bg="#FF0123", fg="white").place(x=440, y=500)
+        Label(window,pady=80,padx=40, text="Kort 5", bg="#00FF00", fg="white").place(x=570, y=500)
 
 
 
 
-canvas.pack()
-window.mainloop()
+
+
+        canvas.pack()
+        window.mainloop()
