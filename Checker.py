@@ -37,13 +37,35 @@ class Checker:
             self.values_dict[card.get_value()] += 1
         return True
    
-    def controll_score(self):
-        pass
+    def controll_score(self, hand):
+        if self.royal_straight_flush(hand):
+            return True
+        elif self.straight_flush(hand):
+            return True
+        elif self.four_of_a_kind():
+            return True
+        elif self.full_house():
+            return True
+        elif self.flush():
+            return True
+        elif self.straight(hand):
+            return True
+        elif self.three_of_a_kind():
+            return True
+        elif self.two_pair():
+            return True
+        elif self.pair():
+            return True
+        else:
+            return self.high_card(hand)
+
+
 
     # !! POKER HANDS !!
 
     def royal_straight_flush(self, hand):
-        pass
+        hand = hand
+        return False
     
     def straight_flush(self, hand):
         straight = True
@@ -135,7 +157,16 @@ class Checker:
         return pair
 
     def high_card(self, hand):
-        pass
+        high_card = True
+        high = -1
+        for card in hand:
+            x = self.card_order.index(card.value)
+            if high == 0:
+                break
+            if x > high or x == 0:
+                high = x
+        self.score = 1
+        return high_card
 
     # High card
     # Pair
