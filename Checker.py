@@ -36,27 +36,63 @@ class Checker:
         for card in player_hand:
             self.values_dict[card.get_value()] += 1
         return True
+    
+    def reset_categ(self):
+        self.suits_dict = {
+            "Hearts": 0,
+            "Diamonds": 0,
+            "Spades": 0,
+            "Clubs": 0
+        }
+
+        self.values_dict = {
+            "A": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0,
+            "J": 0,
+            "Q": 0,
+            "K": 0
+        }
    
     def controll_score(self, hand):
+        self.reset_categ()
+        self.categorize_hand(hand)
         if self.royal_straight_flush(hand):
+            print("Royal Straight Flush")
             return True
         elif self.straight_flush(hand):
+            print("Straight Flush")
             return True
         elif self.four_of_a_kind():
+            print("Four of a Kind")
             return True
         elif self.full_house():
+            print("Full House")
             return True
         elif self.flush():
+            print("Flush")
             return True
         elif self.straight(hand):
+            print("Straight")
             return True
         elif self.three_of_a_kind():
+            print("Three of a Kind")
             return True
         elif self.two_pair():
+            print("Two Pair")
             return True
         elif self.pair():
+            print("Pair")
             return True
         else:
+            print("High Card")
             return self.high_card(hand)
 
 
@@ -70,7 +106,7 @@ class Checker:
     def straight_flush(self, hand):
         straight = True
         flush = True
-        straight_flush = True
+        straight_flush = False
         straight = self.straight(hand)
         flush = self.flush()
         if straight and flush:
@@ -136,7 +172,6 @@ class Checker:
     def two_pair(self):
         two_pair = True
         values_amount_list = list(self.values_dict.values())
-        print (values_amount_list)
         amount_of_pairs = 0
         for num in values_amount_list:
             if num == 2:

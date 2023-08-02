@@ -13,7 +13,7 @@ wallet = Wallet()
 deck_class = Deck()
 deck = deck_class.deck
 
-global player_hand
+#global player_hand
 
 def deal_hand():  
     user_hand = []  
@@ -51,9 +51,8 @@ player_hand = deal_hand()
 
 
 checker.categorize_hand(player_hand)
-print(f"{checker.values_dict
-checker.controll_score(player_hand)
-print(checker.score)
+print(f"{checker.values_dict}")
+
 
 
 cardidx = [False,False,False,False,False]
@@ -93,8 +92,10 @@ def drawnewcards(cardidx,player_hand,window):
             print("amogus")
         i += 1
     drawcards(window,player_hand)
-    
-    return
+    show_player_hand(player_hand)
+    checker.controll_score(player_hand)
+    print(checker.score)
+    return 
 
 def cardidxchange(window,i):
             if cardidx[i] == False:
