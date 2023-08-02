@@ -12,8 +12,9 @@ checker = Checker()
 wallet = Wallet()
 deck_class = Deck()
 deck = deck_class.deck
+global_img = None
 
-global player_hand
+
 
 def deal_hand():  
     user_hand = []  
@@ -66,7 +67,17 @@ def drawcards(window,cards):
         return
 
 def placebuttons(window):
-      
+        global global_img  # Declare the global_img variable to store the image reference
+        img = Image.open('mogusa.jpeg')  # Provide the correct image path here
+
+        # Resize the image to 100x100 pixels without specifying any filter
+        img = img.resize((100, 100))
+
+        global_img = ImageTk.PhotoImage(img)  # Store the resized image reference in the global variable
+        label = Label(window, image=global_img)
+        label.pack()
+
+
         change_card1 = Button(window, text="change" ,highlightbackground="#808080", command=lambda: cardidxchange(window,0))
         change_card2 = Button(window, text="change" ,highlightbackground="#808080", command=lambda: cardidxchange(window,1))
         change_card3 = Button(window, text="change" ,highlightbackground="#808080", command=lambda: cardidxchange(window,2))
@@ -90,10 +101,8 @@ def drawnewcards(cardidx,player_hand,window):
             player_hand[i] = deck[index]
             del deck[index]
             placebuttons(window)
-            print("amogus")
         i += 1
     drawcards(window,player_hand)
-    
     return
 
 def cardidxchange(window,i):
