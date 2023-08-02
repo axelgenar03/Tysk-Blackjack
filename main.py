@@ -51,9 +51,10 @@ player_hand = deal_hand()
 
 
 checker.categorize_hand(player_hand)
-print(f"{checker.values_dict} \n {checker.suits_dict}")
+print(f"{checker.values_dict
+checker.controll_score(player_hand)
+print(checker.score)
 
-#GUI ----------------------------------
 
 cardidx = [False,False,False,False,False]
 def drawcards(window,cards):
