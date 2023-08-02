@@ -7,12 +7,12 @@ import random
 import os
 from tkinter import *
 from PIL import ImageTk, Image
-
+global_img = None
 checker = Checker()
 wallet = Wallet()
 deck_class = Deck()
 deck = deck_class.deck
-global_img = None
+
 
 
 
@@ -60,25 +60,26 @@ print(f"{checker.values_dict}")
 
 cardidx = [False,False,False,False,False]
 def drawcards(window,cards):
-      
-
-        Label(window, pady=80, padx=20, text=cards[0].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=50, y=500)
-        Label(window, pady=80, padx=20, text=cards[1].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=190, y=500)
-        Label(window, pady=80, padx=20, text=cards[2].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=330, y=500)
-        Label(window, pady=80, padx=20, text=cards[3].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=470, y=500)
-        Label(window, pady=80, padx=20, text=cards[4].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=610, y=500)
-        global global_img  # Declare the global_img variable to store the image reference
-        
-
-        def hearts(window):
-            img = Image.open('mogusa.jpeg')
-            img = img.resize((100, 100))
-            global_img = ImageTk.PhotoImage(img)
-            label = Label(window, image=global_img)
-            label.place(x=0, y=0)
-        
-        
-        return
+    global global_img  # Declare the global_img variable to store the image reference
+    Label(window, pady=80, padx=20, text=cards[0].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=50, y=500)
+    Label(window, pady=80, padx=20, text=cards[1].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=190, y=500)
+    Label(window, pady=80, padx=20, text=cards[2].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=330, y=500)
+    Label(window, pady=80, padx=20, text=cards[3].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=470, y=500)
+    Label(window, pady=80, padx=20, text=cards[4].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=610, y=500)
+   
+    
+ #function to draw card valorer
+    def diamonds(window):
+        global global_img  
+        img = Image.open('mogusa.jpeg')
+        img = img.resize((100, 100))
+        global_img = ImageTk.PhotoImage(img)
+        label = Label(window, image=global_img)
+        label.place(x=0, y=0)
+    if cards[1].suit == "Diamonds":
+        diamonds(window)
+    
+    return
 
 def placebuttons(window):
 
