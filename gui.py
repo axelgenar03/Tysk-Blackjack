@@ -42,12 +42,10 @@ class GUI:
         
         self.cardidx = [False,False,False,False,False]
         window = Tk()
-        canvas = Canvas()
         window.geometry("800x800")
         window.title("Blackjack")
         window.configure(bg="#808080")
         self.drawcards(window,cards)
         self.placebuttons(window)
-        canvas.pack()
         window.mainloop()
 
