@@ -7,16 +7,15 @@ import random
 import os
 from tkinter import *
 from PIL import ImageTk, Image
-global_img = None
+diamonds_img = [None,None,None,None,None]
+clubs_img = [None,None,None,None,None]
+hearts_img = [None,None,None,None,None]
+spades_img = [None,None,None,None,None]
 checker = Checker()
 wallet = Wallet()
 deck_class = Deck()
 deck = deck_class.deck
 
-
-
-
-#global player_hand
 
 def deal_hand():  
     user_hand = []  
@@ -69,15 +68,66 @@ def drawcards(window,cards):
    
     
  #function to draw card valorer
-    def diamonds(window):
-        global global_img  
-        img = Image.open('mogusa.jpeg')
-        img = img.resize((100, 100))
-        global_img = ImageTk.PhotoImage(img)
-        label = Label(window, image=global_img)
-        label.place(x=0, y=0)
-    if cards[1].suit == "Diamonds":
-        diamonds(window)
+    def diamonds(window, x):
+        global diamonds_img  
+        diamond_img = Image.open('suits_images/diamonds.png')
+        resized_diamond_img = diamond_img.resize((50, 50))
+        diamonds_img[x] = ImageTk.PhotoImage(resized_diamond_img)
+        label = Label(window, image=diamonds_img[x])
+        label.configure(bg="#FFFFFF")
+        xcord = x * 140
+        xcord +=50
+        print(xcord)
+        label.place(x=xcord,y=500)
+    
+    def clubs(window, x):
+        global clubs_img  
+        club_img = Image.open('suits_images/blubs.png')
+        resized_club_img = club_img.resize((50, 50))
+        clubs_img[x] = ImageTk.PhotoImage(resized_club_img)
+        label = Label(window, image=clubs_img[x])
+        label.configure(bg="#FFFFFF")
+        xcord = x * 140
+        xcord +=50
+        print(xcord)
+        label.place(x=xcord,y=500)
+    
+    def hearts(window, x):
+        global hearts_img
+        heart_img = Image.open('suits_images/hearts.png')
+        resized_heart_img = heart_img.resize((50, 50))
+        hearts_img[x] = ImageTk.PhotoImage(resized_heart_img)
+        label = Label(window, image=hearts_img[x])
+        label.configure(bg="#FFFFFF")
+        xcord = x * 140
+        xcord +=50
+        print(xcord)
+        label.place(x=xcord,y=500)
+
+    def spades(window, x):
+        global spades_img  
+        spade_img = Image.open('suits_images/spades.png')
+        resized_spade_img = spade_img.resize((50, 50))
+        spades_img[x] = ImageTk.PhotoImage(resized_spade_img)
+        label = Label(window, image=spades_img[x])
+        label.configure(bg="#FFFFFF")
+        xcord = x * 140
+        xcord +=50
+        print(xcord)
+        label.place(x=xcord,y=500)
+    
+    z = 0
+    while z < 5:
+        print(z)
+        if cards[z].suit == "Diamonds":
+            diamonds(window,z)
+        if cards[z].suit == "Clubs":
+            clubs(window,z)
+        if cards[z].suit == "Hearts":
+            hearts(window,z)
+        if cards[z].suit == "Spades":
+            spades(window,z)
+        z+=1
     
     return
 
