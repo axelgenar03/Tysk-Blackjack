@@ -59,13 +59,12 @@ print(f"{checker.values_dict}")
 
 cardidx = [False,False,False,False,False]
 def drawcards(window,cards):
-    global global_img  # Declare the global_img variable to store the image reference
-    Label(window, pady=80, padx=20, text=cards[0].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=50, y=500)
-    Label(window, pady=80, padx=20, text=cards[1].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=190, y=500)
-    Label(window, pady=80, padx=20, text=cards[2].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=330, y=500)
-    Label(window, pady=80, padx=20, text=cards[3].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=470, y=500)
-    Label(window, pady=80, padx=20, text=cards[4].show(), bg="#FFFFFF", fg="black", width=10, anchor='center').place(x=610, y=500)
-   
+    Label(window, pady=80,text=cards[0].show(), bg="#FFFFFF", fg="black", width=10,font=("Arial",23), anchor='center').place(x=50, y=500)
+    Label(window, pady=80,text=cards[1].show(), bg="#FFFFFF", fg="black", width=10,font=("Arial",23), anchor='center').place(x=190, y=500)
+    Label(window, pady=80,text=cards[2].show(), bg="#FFFFFF", fg="black", width=10,font=("Arial",23), anchor='center').place(x=330, y=500)
+    Label(window, pady=80,text=cards[3].show(), bg="#FFFFFF", fg="black", width=10,font=("Arial",23), anchor='center').place(x=470, y=500)
+    Label(window, pady=80,text=cards[4].show(), bg="#FFFFFF", fg="black", width=10,font=("Arial",23), anchor='center').place(x=610, y=500)
+    
     
  #function to draw card valorer
     def diamonds(window, x):
@@ -82,7 +81,7 @@ def drawcards(window,cards):
     
     def clubs(window, x):
         global clubs_img  
-        club_img = Image.open('suits_images/blubs.png')
+        club_img = Image.open('suits_images/clubs.png')
         resized_club_img = club_img.resize((50, 50))
         clubs_img[x] = ImageTk.PhotoImage(resized_club_img)
         label = Label(window, image=clubs_img[x])

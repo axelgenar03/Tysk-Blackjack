@@ -4,7 +4,7 @@ class Card:
         self.suit = suit
 
     def show(self):
-        return f"{self.value} of {self.suit}"
+        return f"{self.value}"
     
     def get_value(self):
         return self.value
